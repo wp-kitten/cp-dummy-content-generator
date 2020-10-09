@@ -1,2 +1,3 @@
 # cp-dummy-content-generator
-Generate dummy content.
+Generate dummy content. A [ContentPress](https://github.com/wp-kitten/contentpress) Plugin.
+

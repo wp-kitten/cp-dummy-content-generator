@@ -1,0 +1,17 @@
+{
+    "name": "cp-dummy-content-generator",
+    "display_name": "[ContentPress] Dummy Content Generator",
+    "description": "Generate dummy content.",
+    "version": "0.1",
+    "authors": [
+        {
+            "name": "wp-kitten",
+            "url": "https://wp-kitten.github.io"
+        }
+    ],
+    "contributors": [],
+    "page_url": "https://github.com/wp-kitten/cp-dummy-content-generator",
+    "update_url": "",
+    "autoload": "index.php",
+    "thumbnail": "thumb.png"
+}
