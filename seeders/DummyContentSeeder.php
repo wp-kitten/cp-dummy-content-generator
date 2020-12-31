@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\CPML;
+use App\Helpers\VPML;
 use App\Helpers\MetaFields;
 use App\Models\Category;
 use App\Models\CategoryMeta;
@@ -26,8 +26,8 @@ class DummyContentSeeder extends Seeder
         $postTypeID = PostType::where( 'name', 'post' )->first()->id;
         $postTypePageID = PostType::where( 'name', 'page' )->first()->id;
         $postStatusID = PostStatus::where( 'name', 'publish' )->first()->id;
-        $languageID = CPML::getDefaultLanguageID();
-        $currentUserID = cp_get_current_user()->getAuthIdentifier();
+        $languageID = VPML::getDefaultLanguageID();
+        $currentUserID = vp_get_current_user()->getAuthIdentifier();
 
         $numPages = ( ( isset( $GLOBALS[ 'cpdcg_pages' ] ) && !empty( $GLOBALS[ 'cpdcg_pages' ] ) ) ? intval( $GLOBALS[ 'cpdcg_pages' ] ) : 0 );
         $numPosts = ( ( isset( $GLOBALS[ 'cpdcg_posts' ] ) && !empty( $GLOBALS[ 'cpdcg_posts' ] ) ) ? intval( $GLOBALS[ 'cpdcg_posts' ] ) : 0 );
@@ -108,12 +108,12 @@ class DummyContentSeeder extends Seeder
                 ] );
                 if ( $post ) {
                     //#! Update post meta
-                    if ( cp_current_user_can( 'manage_custom_fields' ) ) {
+                    if ( vp_current_user_can( 'manage_custom_fields' ) ) {
                         MetaFields::add( new PostMeta(), 'post_id', $post->id, '_comments_enabled', true, $languageID );
                     }
 
                     //#! Set category & tags
-                    if ( cp_current_user_can( 'manage_taxonomies' ) ) {
+                    if ( vp_current_user_can( 'manage_taxonomies' ) ) {
                         if ( !empty( $categoriesIds ) ) {
                             $post->categories()->detach();
                             $post->categories()->attach( $categoriesIds[ array_rand( $categoriesIds, 1 ) ] );

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
  * @GET: Show view
  */
 Route::get( 'admin/dummy-content-generator', function () {
-    if ( !cp_current_user_can( 'publish_posts' ) ) {
+    if ( !vp_current_user_can( 'publish_posts' ) ) {
         return redirect()->back()->with( 'message', [
             'class' => 'danger',
             'text' => __( 'cpdcg::m.You are not allowed to access this page.' ),

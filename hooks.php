@@ -7,17 +7,17 @@ if ( !defined( 'CPDCG_PLUGIN_DIR_NAME' ) ) {
     exit;
 }
 
-add_action( 'contentpress/plugin/activated', function ( $pluginDirName, $pluginInfo ) {
+add_action( 'valpress/plugin/activated', function ( $pluginDirName, $pluginInfo ) {
 //    logger( 'Plugin '.$pluginInfo->name.' activated!' );
 }, 10, 2 );
 
-add_action( 'contentpress/plugin/deactivated', function ( $pluginDirName, $pluginInfo ) {
+add_action( 'valpress/plugin/deactivated', function ( $pluginDirName, $pluginInfo ) {
 //    logger( 'Plugin '.$pluginInfo->name.' deactivated!' );
 }, 10, 2 );
 
 //#! Register the views path
-add_filter( 'contentpress/register_view_paths', 'cp_dcg_register_view_paths', 20 );
-function cp_dcg_register_view_paths( $paths = [] )
+add_filter( 'valpress/register_view_paths', 'vp_dcg_register_view_paths', 20 );
+function vp_dcg_register_view_paths( $paths = [] )
 {
     $viewPath = path_combine( public_path( 'plugins' ), CPDCG_PLUGIN_DIR_NAME, 'views' );
     if ( !in_array( $viewPath, $paths ) ) {
@@ -27,8 +27,8 @@ function cp_dcg_register_view_paths( $paths = [] )
 }
 
 //
-add_action( 'contentpress/admin/sidebar/menu', function () {
-    if ( cp_current_user_can( 'publish_posts' ) ) {
+add_action( 'valpress/admin/sidebar/menu', function () {
+    if ( vp_current_user_can( 'publish_posts' ) ) {
         ?>
         <li class="treeview <?php MenuHelper::activateMenuItem( 'admin.dummy_content_generator' ); ?>">
             <a class="app-menu__item" href="#" data-toggle="treeview">
@@ -51,8 +51,8 @@ add_action( 'contentpress/admin/sidebar/menu', function () {
 /**
  * Register the path to the translation file that will be used depending on the current locale
  */
-add_action( 'contentpress/app/loaded', function () {
-    cp_register_language_file( 'cpdcg', path_combine(
+add_action( 'valpress/app/loaded', function () {
+    vp_register_language_file( 'cpdcg', path_combine(
         PluginsManager::getInstance()->getPluginDirPath( CPDCG_PLUGIN_DIR_NAME ),
         'lang'
     ) );

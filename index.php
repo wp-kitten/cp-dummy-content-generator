@@ -1,7 +1,7 @@
 <?php
 
 //#! This plugin doesn't need to run in frontend
-if ( !cp_is_admin() ) {
+if ( !vp_is_admin() ) {
     return;
 }
 

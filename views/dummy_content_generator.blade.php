@@ -16,7 +16,7 @@
 
     @include('admin.partials.notices')
 
-    @if(cp_current_user_can('manage_taxonomies'))
+    @if(vp_current_user_can('manage_taxonomies'))
         <div class="tile">
             <div class="card-body">
                 <h4 class="tile-title">{{__('cpdcg::m.Content')}}</h4>

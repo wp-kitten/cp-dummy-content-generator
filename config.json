@@ -1,8 +1,8 @@
 {
-    "name": "cp-dummy-content-generator",
-    "display_name": "[ContentPress] Dummy Content Generator",
+    "name": "valpress-dummy-content-generator",
+    "display_name": "[ValPress] Dummy Content Generator",
     "description": "Generate dummy content.",
-    "version": "0.1",
+    "version": "1.0",
     "authors": [
         {
             "name": "wp-kitten",
@@ -10,8 +10,8 @@
         }
     ],
     "contributors": [],
-    "page_url": "https://github.com/wp-kitten/cp-dummy-content-generator",
-    "update_url": "http://api.contentpress.news/api/plugin/info/cp-dummy-content-generator",
+    "page_url": "https://github.com/wp-kitten/valpress-dummy-content-generator",
+    "update_url": "http://api.valpress.net/api/plugin/info/valpress-dummy-content-generator",
     "autoload": "index.php",
     "thumbnail": "thumb.png"
 }
