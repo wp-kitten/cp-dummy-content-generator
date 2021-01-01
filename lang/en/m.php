@@ -9,7 +9,7 @@ return [
     'Generate' => 'Generate',
     'You can use this page to create some dummy content to get you started.' => 'You can use this page to create some dummy content to get you started.',
     'This content will consist of: categories, tags, posts, pages.' => 'This content will consist of: categories, tags, posts, pages.',
-    'An error occurred while executing the seeder class.' => 'An error occurred while executing the seeder class.',
+    'An error occurred while executing the seeder class: :error' => 'An error occurred while executing the seeder class: :error',
     'Content generator ran successfully!' => 'Content generator ran successfully!',
     'Pages' => 'Pages',
     'Posts' => 'Posts',

@@ -39,15 +39,16 @@ Route::post( 'admin/dummy-content-generator/generate', function () {
         ] );
     }
 
-    //#! Load seeder class
-    $seederFilePath = path_combine( public_path( 'plugins' ), CPDCG_PLUGIN_DIR_NAME, 'seeders', 'DummyContentSeeder.php' );
-    $GLOBALS['cpdcg_pages'] = $pages;
-    $GLOBALS['cpdcg_posts'] = $posts;
-    $GLOBALS['cpdcg_categories'] = $categories;
-    $GLOBALS['cpdcg_tags'] = $tags;
-    require_once( $seederFilePath );
+    //#! Setup vars
+    $GLOBALS[ 'cpdcg_pages' ] = $pages;
+    $GLOBALS[ 'cpdcg_posts' ] = $posts;
+    $GLOBALS[ 'cpdcg_categories' ] = $categories;
+    $GLOBALS[ 'cpdcg_tags' ] = $tags;
 
     try {
+        //#! Load seeder class
+        $seederFilePath = path_combine( public_path( 'plugins' ), CPDCG_PLUGIN_DIR_NAME, 'seeders', 'DummyContentSeeder.php' );
+        require_once( $seederFilePath );
         Artisan::call( 'db:seed', [
             '--class' => 'DummyContentSeeder',
         ] );
@@ -55,7 +56,7 @@ Route::post( 'admin/dummy-content-generator/generate', function () {
     catch ( Exception $e ) {
         return redirect()->back()->with( 'message', [
             'class' => 'danger',
-            'text' => __( 'cpdcg::m.An error occurred while executing the seeder class: ' . $e->getMessage() ),
+            'text' => __( 'cpdcg::m.An error occurred while executing the seeder class: :error', [ 'error' => $e->getMessage() ] ),
         ] );
     }
 

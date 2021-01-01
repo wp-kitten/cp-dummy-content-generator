@@ -11,7 +11,7 @@
     ],
     "contributors": [],
     "page_url": "https://github.com/wp-kitten/valpress-dummy-content-generator",
-    "update_url": "http://api.valpress.net/api/plugin/info/valpress-dummy-content-generator",
+    "update_url": "https://api.valpress.net/api/plugin/info/valpress-dummy-content-generator",
     "autoload": "index.php",
     "thumbnail": "thumb.png"
 }

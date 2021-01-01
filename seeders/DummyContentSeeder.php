@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\VPML;
 use App\Helpers\MetaFields;
+use App\Helpers\VPML;
 use App\Models\Category;
 use App\Models\CategoryMeta;
 use App\Models\Post;
@@ -120,13 +120,15 @@ class DummyContentSeeder extends Seeder
                         }
 
                         if ( !empty( $tagsIds ) ) {
-                            $post->tags()->detach();
                             $tags = array_rand( $tagsIds, ceil( count( $tagsIds ) / 3 ) );
-                            $t = [];
-                            foreach ( $tags as $ix => $index ) {
-                                array_push( $t, $tagsIds[ $index ] );
+                            if ( !empty( $tags ) ) {
+                                $post->tags()->detach();
+                                $t = [];
+                                foreach ( $tags as $ix => $index ) {
+                                    array_push( $t, $tagsIds[ $index ] );
+                                }
+                                $post->tags()->attach( $t );
                             }
-                            $post->tags()->attach( $t );
                         }
                     }
                 }
